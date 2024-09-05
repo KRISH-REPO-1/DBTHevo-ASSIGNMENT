@@ -3,7 +3,7 @@ DBTHevo:
     dev:
       account: IRFWLXD-IOB77478
       database: PC_HEVODATA_DB
-      password: Krishnalearning@1
+      password: <enter password>
       role: PC_HEVODATA_ROLE
       schema: CORE
       threads: 1
