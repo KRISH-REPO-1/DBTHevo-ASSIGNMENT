@@ -11,11 +11,17 @@ docker exec -it my_postgres bash
 2. edit config files to make your postgres available on network
 root@ea1e1ad19b04:/# cat /var/lib/postgresql/data/postgresql.conf | grep listen_addresses*
 listen_addresses = '*'
-hba_config - add hevo ip
-postgresql.conf -add replication wal config
+
+hba_config - add host adn replication config
+ host    all             user_name           0.0.0.0/0              md5
+host replication all <replica_ip_address>/32 md5
+postgresql.conf -setup log based replication method
+ host    all             user_name           0.0.0.0/0              md5
 
 3. restart docker container after updating config files   
 docker restart my_postgres
+
+
 
 4. created docker image for pgadmin with following commands
   
