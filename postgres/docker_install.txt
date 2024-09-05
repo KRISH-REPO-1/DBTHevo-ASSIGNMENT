@@ -1,0 +1,31 @@
+Steps followed to install docker 
+
+1. install docker   
+2. create postgres container using following commands
+  
+docker pull postgres
+docker run -d --name my_postgres -e POSTGRES_PASSWORD=hevopass -p 5432:5432 postgres
+docker ps
+docker exec -it my_postgres bash
+
+2. edit config files to make your postgres available on network
+root@ea1e1ad19b04:/# cat /var/lib/postgresql/data/postgresql.conf | grep listen_addresses*
+listen_addresses = '*'
+hba_config - add hevo ip
+postgresql.conf -add replication wal config
+
+3. restart docker container after updating config files   
+docker restart my_postgres
+
+4. created docker image for pgadmin with following commands
+  
+docker run -d --name pgadmin -p 8080:80 -e PGADMIN_DEFAULT_EMAIL=<email>-e PGADMIN_DEFAULT_PASSWORD=<password> dpage/pgadmin4  
+
+5. connect to pgadmin 
+http://localhost:8080
+
+6. create tables and upload data
+
+7. enable port forwarding on the router for 5432 to make postgres available on internet
+
+8. use public Ip to  port 5432 while defining source connection
