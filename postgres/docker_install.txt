@@ -16,7 +16,7 @@ hba_config - add host adn replication config
  host    all             user_name           0.0.0.0/0              md5
 host replication all <replica_ip_address>/32 md5
 postgresql.conf -setup log based replication method
- host    all             user_name           0.0.0.0/0              md5
+wal_level = logical
 
 3. restart docker container after updating config files   
 docker restart my_postgres
