@@ -26,6 +26,7 @@ http://localhost:8080
 
 6. create tables and upload data
 
-7. enable port forwarding on the router for 5432 to make postgres available on internet
+7. Open Firewall for PostgreSQL Port, enable port forwarding on the router for 5432 to make postgres available on internet
+
 
 8. use public Ip to  port 5432 while defining source connection
