@@ -1,0 +1,45 @@
+version: 2
+models:
+  - name: dim_customers
+    columns:
+      - name: customer_id
+        description: primary key
+        tests:
+          - not_null
+          - unique
+    description: This model has active records from source customer table
+  - name: dim_orders
+    columns:
+      - name: order_id
+        description: primary key
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: forreign key to dim_customers
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+    description: This model has active records from raw orders snapshot
+  - name: fct_payments
+    columns:
+      - name: payment_id
+        description: primary_key
+        tests:
+          - not_null
+          - unique
+      - name: amount
+        description: payment amount related to orders
+        tests:
+          - not_null
+      - name: order_id
+        description: foreign key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_orders')
+              field: order_id
+    description: This model stores payments  and payments mode for orders. This
+      model is append only model on the basis of payment_id

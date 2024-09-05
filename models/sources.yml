@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: PC_HEVODATA_DB
+    schema: public
+    tables:
+      - name: customers
+        identifier: raw_customers
+      - name: orders
+        identifier: raw_orders
+      - name: payments
+        identifier: raw_payments

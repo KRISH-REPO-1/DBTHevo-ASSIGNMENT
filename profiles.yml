@@ -1,0 +1,13 @@
+DBTHevo:
+  outputs:
+    dev:
+      account: IRFWLXD-IOB77478
+      database: PC_HEVODATA_DB
+      password: Krishnalearning@1
+      role: PC_HEVODATA_ROLE
+      schema: CORE
+      threads: 1
+      type: snowflake
+      user: KRISH1107
+      warehouse: PC_HEVODATA_WH
+  target: dev
