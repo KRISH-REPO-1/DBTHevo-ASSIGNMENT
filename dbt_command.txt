@@ -1,3 +1,4 @@
 dbt build
 dbt docs
 dbt docs serve
+dbt test
